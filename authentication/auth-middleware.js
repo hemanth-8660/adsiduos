@@ -1,5 +1,5 @@
 const jwtToken = require('jsonwebtoken');
-const {SECRET_KEY} = require('../utils/config');
+const config = process.env;
 const logger = require('../utils/log4js').getLogger('AUTHENTICATION');
 // const Models = require('../utils/mongo').getModels();
 
@@ -13,7 +13,7 @@ const authMiddleWare = async (req, res, next) => {
 
     let decodedObj;
     try {
-        decodedObj = jwtToken.verify(token, SECRET_KEY); 
+        decodedObj = jwtToken.verify(token, config.SECRET_KEY); 
         if (decodedObj) {
             req.user = decodedObj;
         }

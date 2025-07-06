@@ -1,7 +1,6 @@
-const { MONGO_URL } = require('./config');
 const { MongoClient } = require('mongodb');
 const logger = require('log4js').getLogger('MONGO');
-const config = require('./config');
+const config = process.env;
 let models = {};
 // add all the collection into models object
 

@@ -3,7 +3,6 @@ const Models = require('../utils/mongo').getModels();
 const jwtToken = require('jsonwebtoken')
 const logger = require('../utils/log4js').getLogger('USERS');
 const bcrypt = require('bcrypt');
-const { SECRET_KEY } = require('../utils/config');
 
 module.exports.register = async (req, res) => {
     const { email, userName, password } = req.body;

@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
-const config = require('./utils/config');
 const logger = require('log4js').getLogger('INDEX');
-const PORT = config.PORT;
 const routes = require('./routes/index');
 const Mongo = require('./utils/mongo');
-
+require('dotenv').config();
+const config = process.env;
 const mongo = new Mongo();
+
 mongo.connect().then(() => {
     logger.info('Connected to mongo...');
 }).catch((err) => {
