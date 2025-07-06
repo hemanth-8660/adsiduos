@@ -8,3 +8,4 @@ PATCH /files/:id/view – Increment view count of a specific file
 
 #Search
 POST /search?keyword=example – Search files by keyword, sorted by relevance and view count
+
