@@ -20,4 +20,6 @@ app.use(express.json({limit: '20mb'}));
 app.use(require('cors')({origin: '*'}));
 routes(app);
 
-module.exports.handler = serverless(app);
+app.listen(config.PORT, () => {
+    console.log(`Server ready on port ${config.PORT}.`)
+})
