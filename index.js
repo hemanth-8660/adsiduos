@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const serverless = require('serverless-http');
 const logger = require('log4js').getLogger('INDEX');
 const routes = require('./routes/index');
 const Mongo = require('./utils/mongo');
@@ -19,6 +20,4 @@ app.use(express.json({limit: '20mb'}));
 app.use(require('cors')({origin: '*'}));
 routes(app);
 
-app.listen(config.PORT, () => {
-    logger.info('Server Listening At ' + config.PORT);
-})
+module.exports.handler = serverless(app);

@@ -5,8 +5,7 @@
   "main": "config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
-    "build": "npm index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +21,7 @@
     "mongodb": "^6.17.0",
     "multer": "^2.0.1",
     "multer-storage-cloudinary": "^4.0.0",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "serverless-http": "^3.0.1"
   }
 }
