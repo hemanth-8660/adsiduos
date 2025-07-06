@@ -1,11 +1,11 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const logger = require('log4js').getLogger('INDEX');
 const routes = require('./routes/index');
 const Mongo = require('./utils/mongo');
-require('dotenv').config();
 const config = process.env;
-const mongo = new Mongo();
+const mongo = new Mongo(config.MONGO_URL);
 
 mongo.connect().then(() => {
     logger.info('Connected to mongo...');

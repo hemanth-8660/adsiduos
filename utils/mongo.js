@@ -7,7 +7,7 @@ let models = {};
 class Mongo {
     
     constructor (uri) {
-        this.uri = config.MONGO_URL;
+        this.uri = uri;
     }
 
     async connect () {
