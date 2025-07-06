@@ -1,10 +1,9 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const serverless = require('serverless-http');
 const logger = require('log4js').getLogger('INDEX');
-const routes = require('./routes/index');
-const Mongo = require('./utils/mongo');
+const routes = require('../routes/index');
+const Mongo = require('../utils/mongo');
 const config = process.env;
 const mongo = new Mongo(config.MONGO_URL);
 
