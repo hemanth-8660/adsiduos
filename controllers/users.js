@@ -3,6 +3,7 @@ const Models = require('../utils/mongo').getModels();
 const jwtToken = require('jsonwebtoken')
 const logger = require('../utils/log4js').getLogger('USERS');
 const bcrypt = require('bcrypt');
+const config = process.env;
 
 module.exports.register = async (req, res) => {
     const { email, userName, password } = req.body;
@@ -35,6 +36,7 @@ module.exports.register = async (req, res) => {
     }
 
     const hashPassword = await bcrypt.hash(password, 10);
+
     try {
         await Models.users.insertOne({
             email,
@@ -75,7 +77,7 @@ module.exports.login = async (req, res) => {
             email: user.email,
             userName: user.userName
         }
-        const token = await jwtToken.sign(payload, SECRET_KEY, { expiresIn: '2h' });
+        const token = await jwtToken.sign(payload, config.SECRET_KEY, { expiresIn: '2h' });
         delete user.password;
         user.token = token;
         logger.info("login Successful ");

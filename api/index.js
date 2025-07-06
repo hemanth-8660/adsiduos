@@ -16,7 +16,7 @@ mongo.connect().then(() => {
 app.use(express.json({limit: '20mb'}));
 
 // allwoing frontend to hit api's
-app.use(require('cors')({origin: '*'}));
+app.use(require('cors')());
 routes(app);
 
 app.listen(config.PORT, () => {
