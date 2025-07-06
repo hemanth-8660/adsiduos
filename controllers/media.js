@@ -5,7 +5,6 @@ const Models = require('../utils/mongo').getModels();
 const {ObjectId} = require('mongodb')
 
 module.exports.upload = async (req, res) => {
-    console.log(req.user);
     try {
         const file = req.file;
         await Models.files.insertOne({
@@ -26,18 +25,6 @@ module.exports.upload = async (req, res) => {
         logger.error(err.toString());
         return res.status(500).json({error: 'Something Went Wrong....'});
     }
-}
-
-module.exports.getAllFiles = async(req, res) => {
-    let files;
-    try {
-        files = await Models.files.find({}).toArray();
-    } catch (err) {
-        logger.error(err.toString());
-        return res.status(500).json({error: 'Internal Server Error...'});
-    }
-    logger.info('Successfully fetched all files....');
-    return res.status(200).json(files);
 }
 
 module.exports.updateViewCount = async (req, res) => {
