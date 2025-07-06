@@ -1,5 +1,4 @@
 #Auth
-
 POST /register – Register a new user
 POST /login – Login and receive JWT
 
