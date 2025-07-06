@@ -23,3 +23,4 @@ routes(app);
 app.listen(config.PORT, () => {
     console.log(`Server ready on port ${config.PORT}.`)
 })
+module.exports = app;
