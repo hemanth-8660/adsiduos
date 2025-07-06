@@ -26,6 +26,9 @@ mongo.connect().then(() => {
 app.use(express.json({limit: '20mb'}));
 
 routes(app);
+app.get('/', (req, res) => {
+    return res.send('Express on Vercel')
+})
 
 app.listen(config.PORT, () => {
     console.log(`Server ready on port ${config.PORT}.`)
