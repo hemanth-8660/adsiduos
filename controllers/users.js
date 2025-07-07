@@ -45,7 +45,7 @@ module.exports.register = async (req, res) => {
         });
     } catch (err) {
         logger.error({ error: err.toString()});
-        return res.status(500).json({ error: 'Internal Server Error'});
+        return res.status(500).json({ error: err.toString()});
     }
     logger.info('User Created Successfully...')
     return res.status(200).json({message: 'User Created Successfully...'});
@@ -84,6 +84,6 @@ module.exports.login = async (req, res) => {
         return res.status(200).json(user);
     } catch (err) {
         logger.error(err.toString());
-        return res.status(500).json({error: 'Internal Server Error...'});
+        return res.status(500).json({error: err.toString()});
     }
 }

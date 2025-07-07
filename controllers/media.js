@@ -23,7 +23,7 @@ module.exports.upload = async (req, res) => {
         });
     } catch (err) {
         logger.error(err.toString());
-        return res.status(500).json({error: 'Something Went Wrong....'});
+        return res.status(500).json({error: err.toString()});
     }
 }
 
@@ -85,6 +85,6 @@ module.exports.search = async (req, res) => {
     logger.info('Successfully Fetched Searched Files')
     return res.status(200).json(results);
   } catch (err) {
-    res.status(500).json({ error: 'Search failed' });
+    res.status(500).json({ error:err.toString() });
   }
 }
