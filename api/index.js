@@ -5,12 +5,7 @@ const logger = require('log4js').getLogger('INDEX');
 const Mongo = require('../utils/mongo');
 
 const cors = require('cors');
-app.use(cors({
-    origin: ['https://adsiduos-admin.vercel.app'],
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD']
-}));
-app.options('*',cors()) // handling preflight
+app.use(cors());
 
 const routes = require('../routes/index');
 const config = process.env;
