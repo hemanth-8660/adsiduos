@@ -1,5 +1,5 @@
-#Auth
-POST /register – Register a new user
+#**Auth**
+POST **/register** – Register a new user
 
 Request body
 {
@@ -27,8 +27,8 @@ Response
 
 
 
-#Files
-POST /upload – Upload a file (image, video, audio, or PDF)
+#**Files**
+POST **/upload** – Upload a file (image, video, audio, or PDF)
 Headers:
 Content-Type: multipart/form-data
 Authorization: Bearer <token>
@@ -45,16 +45,16 @@ Response
   }
 }
 
-#increment count
-PATCH /files/:id/view – Increment view count of a specific file
+#i**ncrement count**
+PATCH **/files/:id/view** – Increment view count of a specific file
 :id – File ID
 Response 
 {
   "message": "Updated File View Count Successfully.",
 }
 
-#Search
-POST /search?keyword=example – Search files by keyword, sorted by relevance and view count
+#**Search**
+POST **/search?keyword=exampl**e – Search files by keyword, sorted by relevance and view count
 Request: keyword
 Response:
 [
@@ -71,3 +71,6 @@ Response:
 ]
 
 
+#Notes
+❗ **Test cases are not implemented.** 
+**While all major features are listed and explained in this README,**
