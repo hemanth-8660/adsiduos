@@ -12,7 +12,7 @@ class Mongo {
 
     async connect () {
         let db, client;
-
+        logger.error(this.uri)
         try {
             client = await MongoClient.connect(this.uri)
             db = client.db('ads');
