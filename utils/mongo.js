@@ -12,7 +12,6 @@ class Mongo {
 
     async connect () {
         let db, client;
-        logger.error(process.env)
         try {
             client = await MongoClient.connect(this.uri)
             db = client.db('ads');
@@ -23,7 +22,7 @@ class Mongo {
 
             logger.debug('Generated all Models');
         } catch (err) {
-            logger.error(err.toString());
+            logger.error(err.toString() + this.uri);
             process.exit(1);
         }
     }
