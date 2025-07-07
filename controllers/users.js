@@ -53,7 +53,6 @@ module.exports.register = async (req, res) => {
 
 module.exports.login = async (req, res) => {
     const { email, password } = req.body;
-    logger.error(Models.users);
     let user;
     try {
         user = await Models.users.findOne({email});
