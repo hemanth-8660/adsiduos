@@ -16,7 +16,7 @@ class Mongo {
         try {
             client = await MongoClient.connect(this.uri)
             db = client.db('ads');
-            logger.info('Connection Established Succesfully!!!');
+            logger.error('Connection Established Succesfully!!!');
 
             models.users = db.collection('users');
             models.files = db.collection('files');
